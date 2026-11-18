@@ -1,15 +1,15 @@
 :root {
-  --dark: #0E1216;
-  --dark-2: #1A2026;
-  --paper: #ECEAE4;
-  --paper-2: #DEDBD2;
-  --amber: #C8A951;
-  --amber-ink: #5E5220;
-  --ink: #0E1216;
-  --ink-soft: #3A4148;
-  --mist: #A9B1B8;
-  --line-dark: #2E363E;
-  --line-light: #C9C5BA;
+  --dark: #16181B;
+  --dark-2: #23262B;
+  --paper: #F4F4F2;
+  --paper-2: #E6E6E3;
+  --amber: #F0564D;
+  --amber-ink: #B3261E;
+  --ink: #16181B;
+  --ink-soft: #45484D;
+  --mist: #B4B7BB;
+  --line-dark: #34383E;
+  --line-light: #D2D2CE;
 }
 
 body { font-family: 'Inter', Arial, sans-serif; }
@@ -27,7 +27,7 @@ section {
 }
 
 section.dark { background: var(--dark); color: var(--paper); }
-section.amber { background: var(--amber); color: var(--ink); }
+section.amber { background: #C62D25; color: var(--paper); }
 
 h1, h2, h3 { font-family: 'Space Grotesk', Arial, sans-serif; font-weight: 600; margin: 0; }
 h1 { font-size: 112px; line-height: 1.0; letter-spacing: -2px; }
@@ -44,11 +44,11 @@ p { margin: 0; }
   color: var(--amber-ink);
 }
 section.dark .eyebrow { color: var(--amber); }
-section.amber .eyebrow { color: var(--ink); }
+section.amber .eyebrow { color: var(--paper); }
 
 .lede { font-size: 32px; line-height: 1.4; color: var(--ink-soft); }
 section.dark .lede { color: var(--mist); }
-section.amber .lede { color: var(--ink); }
+section.amber .lede { color: var(--paper); }
 
 .text { font-size: 24px; line-height: 1.45; color: var(--ink-soft); }
 section.dark .text { color: var(--mist); }
@@ -113,8 +113,8 @@ section.dark .stat-label { color: var(--mist); }
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   font-size: 24px;
   letter-spacing: 4px;
-  color: var(--ink);
-  background: var(--amber);
+  color: var(--paper);
+  background: #C62D25;
   padding: 12px 24px;
   align-self: flex-start;
 }
@@ -136,11 +136,11 @@ th { text-align: left; font-weight: 600; }
   flex-direction: column;
   gap: 8px;
 }
-.node.gate { background: var(--amber); border-color: var(--amber); }
+.node.gate { background: #C62D25; border-color: #C62D25; }
 .node .nh { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 32px; font-weight: 600; color: var(--paper); }
 .node .nt { font-size: 24px; line-height: 1.35; color: var(--mist); }
-.node.gate .nh { color: var(--ink); }
-.node.gate .nt { color: var(--ink); }
+.node.gate .nh { color: var(--paper); }
+.node.gate .nt { color: var(--paper); }
 
 /* Pills / labels */
 .pill {
