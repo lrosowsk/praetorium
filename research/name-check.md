@@ -27,7 +27,7 @@ This session's network blocks domain registration lookups (RDAP/WHOIS), so domai
 ## Options
 
 1. **Keep Praetorium and get a lawyer's opinion first.** An attorney may argue "Defense" plus the critical-infrastructure focus distinguishes it, but expect the risk to be called meaningful. A clearance opinion typically costs a few hundred to a couple of thousand dollars.
-2. **Switch to a cleaner Latin name.** In earlier checks, **Custos** ("guard") had no security, defense or AI company using it. The only US CUSTOS registration found is in Class 36 (financial services), plus a 2026 UK application covering healthcare AI software. **Vindex** and **Versor** also came back clean on company searches. Each still needs a proper trademark search.
+2. **Switch to a cleaner Latin name.** **Custos** is now ruled out: Custos Inc. sells a consumer smart water-leak detection system (Kickstarter, 2022; "Custos Home" app), which overlaps with the water sector in the expansion plan. It also has a Class 36 US registration and a 2026 UK application for healthcare AI software. **Vindex** and **Versor** came back clean on company searches, and no trademark for either turned up in software, industrial or utility fields. Each still needs a proper USPTO search.
 3. **Use Praetorium as an internal codename** while you validate the market, and pick the public name before incorporating or launching a website.
 
 ## Sources
