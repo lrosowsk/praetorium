@@ -1,8 +1,8 @@
-# Tagout
+# Lockout
 
-**Lockout/tagout for AI in critical infrastructure.** Tagout is a policy layer between AI (vendor copilots, engineering agents, analytics models) and the operational systems that run the grid. It discovers what AI can reach, enforces what it may do, detects machine-speed attacks, and produces audit evidence for regulators.
+**The safety lockout for AI in critical infrastructure.** Lockout is a policy layer between AI (vendor copilots, engineering agents, analytics models) and the operational systems that run the grid. It discovers what AI can reach, enforces what it may do, detects machine-speed attacks, and produces audit evidence for regulators.
 
-“Tagout” is a working name, after the lockout/tagout safety procedure every utility operator knows. Check trademarks before using it publicly.
+The name comes from lockout/tagout, the safety procedure every utility operator knows. Run a trademark search before using it publicly, and note that Lookout, a mobile security company, is one letter away.
 
 ## Where we are
 
