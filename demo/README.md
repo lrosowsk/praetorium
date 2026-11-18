@@ -1,6 +1,6 @@
-# Praetorium demo
+# Preceptor demo
 
-A working prototype of the first product: AI agents reach a simulated substation **only** through the Praetorium gate, which identifies each agent, checks its policy, holds risky actions for a human, quarantines machine-speed scanning, and keeps a tamper-evident audit trail.
+A working prototype of the first product: AI agents reach a simulated substation **only** through the Preceptor gate, which identifies each agent, checks its policy, holds risky actions for a human, quarantines machine-speed scanning, and keeps a tamper-evident audit trail.
 
 ![Dashboard](dashboard.png)
 
@@ -17,7 +17,7 @@ Open **http://127.0.0.1:8080**. About 5 seconds in, the EMS copilot asks to rais
 
 ## What happens (about 40 seconds)
 
-| Time | Agent | What it tries | What Praetorium does |
+| Time | Agent | What it tries | What Preceptor does |
 |---|---|---|---|
 | Throughout | `forecast-model` | Reads feeder loads | **Allowed**: inside its read scope |
 | ~5s | `ems-copilot` (vendor AI) | Raise the regulator tap by 2 to fix low voltage | **Held** for human sign-off; executes only when approved |

@@ -1,8 +1,8 @@
-# Praetorium Defense
+# Preceptor Defense
 
-**The human sign-off for AI in critical infrastructure.** Praetorium Defense ("Praetorium" for short) is a policy layer between AI (vendor copilots, engineering agents, analytics models) and the operational systems that run the grid. It discovers what AI can reach, enforces what it may do, detects machine-speed attacks, and produces audit evidence for regulators.
+**The human sign-off for AI in critical infrastructure.** Preceptor Defense ("Preceptor" for short) is a policy layer between AI (vendor copilots, engineering agents, analytics models) and the operational systems that run the grid. It discovers what AI can reach, enforces what it may do, detects machine-speed attacks, and produces audit evidence for regulators.
 
-A praetorium was the Roman commander’s headquarters, where orders were authorized before anyone acted on them. The product borrows the utility “hold point”: a step nobody may pass until a qualified person signs off. Run a trademark search before using the name publicly; Praetorian, an offensive security firm, has a similar name.
+A preceptor is the one who sets the rules others must follow. The product borrows the utility “hold point”: a step nobody may pass until a qualified person signs off. Preceptor is the working name: web searches found no company using it and only cancelled PRECEPTOR trademarks, but run a full USPTO search before filing (see `research/name-check.md`).
 
 ## Where we are
 
@@ -20,9 +20,9 @@ Pre-product, in customer discovery. The plan is to **validate before building**:
 | `discovery/05-scoring-and-synthesis.md` | Scoring rubric, synthesis table, decision rules, pilot LOI template |
 | `discovery/06-one-page-brief.md` | Research brief to send ahead of calls |
 | `research/market-facts.md` | Every number in the deck, with sources and confidence |
-| `research/name-check.md` | Trademark check for the Praetorium name |
+| `research/name-check.md` | Trademark check for the Preceptor name |
 | `discovery/prospects.csv` | 61 organizations to contact first, prioritized (guide in `prospects.md`) |
-| `demo/` | Working prototype: AI agents, a simulated substation, the Praetorium gate and dashboard |
+| `demo/` | Working prototype: AI agents, a simulated substation, the Preceptor gate and dashboard |
 | `deck/project/` | Source files for the pitch deck (one HTML file per slide) |
 
 ## The pitch deck

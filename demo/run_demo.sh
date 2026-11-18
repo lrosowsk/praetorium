@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Start the simulated substation and the Praetorium gate, then run the agent scenario.
+# Start the simulated substation and the Preceptor gate, then run the agent scenario.
 # Open http://127.0.0.1:8080 to watch, and approve the copilot's request when it appears.
 set -euo pipefail
 cd "$(dirname "$0")"

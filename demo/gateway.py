@@ -1,4 +1,4 @@
-"""The Praetorium gate (demo).
+"""The Preceptor gate (demo).
 
 AI agents never talk Modbus directly. They call this gateway's tool API, and
 every request is:
@@ -242,7 +242,7 @@ class Gate:
             for e in self.audit:
                 totals[e["decision"]] += 1
             lines = [
-                "# Praetorium: AI access evidence report",
+                "# Preceptor: AI access evidence report",
                 "",
                 f"Generated {now()} (demo environment, simulated substation)",
                 "",
@@ -304,7 +304,7 @@ def make_handler(gate: Gate):
                 return self._send(200, gate.state())
             if self.path == "/api/report":
                 return self._send(200, gate.report(), "text/markdown; charset=utf-8",
-                                  {"Content-Disposition": 'attachment; filename="praetorium-evidence-report.md"'})
+                                  {"Content-Disposition": 'attachment; filename="preceptor-evidence-report.md"'})
             if self.path.startswith("/api/hold/"):
                 hid = self.path.rsplit("/", 1)[-1]
                 if hid in gate.pending:
@@ -343,7 +343,7 @@ def main():
     args = parser.parse_args()
     gate = Gate(OT(args.modbus_port), HERE / "audit.jsonl")
     server = ThreadingHTTPServer(("127.0.0.1", args.port), make_handler(gate))
-    print(f"[gateway] Praetorium gate and dashboard on http://127.0.0.1:{args.port}", flush=True)
+    print(f"[gateway] Preceptor gate and dashboard on http://127.0.0.1:{args.port}", flush=True)
     server.serve_forever()
 
 

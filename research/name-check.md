@@ -1,4 +1,19 @@
-# Name check: Praetorium Defense
+# Name check
+
+## Decision (working name): Preceptor Defense
+
+Chosen November 2026 after checking about 90 names. A *preceptor* sets the rules others must follow, and in the old military orders commanded a house.
+
+- **Companies:** web search found no security, defense or AI company called Preceptor.
+- **Trademarks:** only two PRECEPTOR registrations turned up, both Class 9 training software and both cancelled (Reg. 1870383, cancelled 2002; Reg. 3699267, cancelled 2016). No live or pending Class 9 or 42 mark was found, but aggregator sites can miss filings.
+- **Before filing or launching:** run an exact search on tmsearch.uspto.gov, check domains (preceptordefense.com, preceptor.ai), and get a short attorney clearance opinion.
+- Ruled out along the way: Tagout, Lockout, Holdpoint, Praetorium/Praetor (PRAETORIAN cybersecurity marks), Custos (water-leak device company), Legatus (Catholic business organization), Tensor, Verax, Integer, Tenax, Barrier, Buffer and others.
+
+Sources: [PRECEPTOR 74335811](https://markinton.com/trademark/preceptor-74335811), [PRECEPTOR 76666296](https://markinton.com/trademark/preceptor-76666296)
+
+---
+
+# Earlier check: Praetorium Defense
 
 Researched November 2026 from public trademark aggregators (Justia, uspto.report, Markinton, TrademarkDir) and web search. **This is not legal advice and not a full clearance search.** Confirm everything in the USPTO's own Trademark Search and get a trademark attorney's opinion before filing or spending on branding.
 
