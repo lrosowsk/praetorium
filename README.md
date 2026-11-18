@@ -1,8 +1,8 @@
-# Holdpoint Defense
+# Praetorium Defense
 
-**The human sign-off for AI in critical infrastructure.** Holdpoint Defense ("Holdpoint" for short) is a policy layer between AI (vendor copilots, engineering agents, analytics models) and the operational systems that run the grid. It discovers what AI can reach, enforces what it may do, detects machine-speed attacks, and produces audit evidence for regulators.
+**The human sign-off for AI in critical infrastructure.** Praetorium Defense ("Praetorium" for short) is a policy layer between AI (vendor copilots, engineering agents, analytics models) and the operational systems that run the grid. It discovers what AI can reach, enforces what it may do, detects machine-speed attacks, and produces audit evidence for regulators.
 
-The name comes from the hold point: the step in a utility work procedure that nobody may pass until a qualified person signs off. Run a trademark search before using it publicly.
+A praetorium was the Roman commander’s headquarters, where orders were authorized before anyone acted on them. The product borrows the utility “hold point”: a step nobody may pass until a qualified person signs off. Run a trademark search before using the name publicly; Praetorian, an offensive security firm, has a similar name.
 
 ## Where we are
 
