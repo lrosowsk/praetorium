@@ -20,6 +20,9 @@ Pre-product, in customer discovery. The plan is to **validate before building**:
 | `discovery/05-scoring-and-synthesis.md` | Scoring rubric, synthesis table, decision rules, pilot LOI template |
 | `discovery/06-one-page-brief.md` | Research brief to send ahead of calls |
 | `research/market-facts.md` | Every number in the deck, with sources and confidence |
+| `research/name-check.md` | Trademark check for the Praetorium name |
+| `discovery/prospects.csv` | 61 organizations to contact first, prioritized (guide in `prospects.md`) |
+| `demo/` | Working prototype: AI agents, a simulated substation, the Praetorium gate and dashboard |
 | `deck/project/` | Source files for the pitch deck (one HTML file per slide) |
 
 ## The pitch deck

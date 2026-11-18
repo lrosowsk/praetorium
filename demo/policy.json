@@ -1,0 +1,36 @@
+{
+  "_comment": "Who may do what. Point classes: measurement, control, protection. Write modes: allow, approve (hold for a human), never.",
+  "class_rules": {
+    "protection": "never",
+    "control": "approve",
+    "measurement": "never"
+  },
+  "detection": {
+    "window_seconds": 5,
+    "max_requests": 15,
+    "max_distinct_points": 8
+  },
+  "agents": {
+    "forecast-model": {
+      "description": "Load forecasting model",
+      "owner": "Grid analytics team",
+      "source": "In-house",
+      "read": ["feeder_1_load", "feeder_2_load", "feeder_3_load", "bus_voltage", "frequency"],
+      "write": []
+    },
+    "ems-copilot": {
+      "description": "AI copilot built into the EMS vendor's software",
+      "owner": "Control room (vendor: EMS supplier)",
+      "source": "Vendor",
+      "read": ["*"],
+      "write": ["regulator_tap", "voltage_setpoint"]
+    },
+    "eng-assistant-7": {
+      "description": "Engineering coding assistant with OT network access",
+      "owner": "Substation engineering",
+      "source": "Third-party AI tool",
+      "read": ["feeder_1_load", "feeder_2_load", "feeder_3_load"],
+      "write": []
+    }
+  }
+}

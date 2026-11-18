@@ -1,0 +1,62 @@
+priority,organization,type,state,why_target,pitch_angle,target_roles,how_to_reach,contact_name,contact_title,status,notes
+1,Basin Electric Power Cooperative,G&T cooperative,ND,Large G&T with bulk-grid assets under NERC CIP; serves many member co-ops,Compliance + AI visibility,CISO; OT security manager; NERC CIP compliance manager,NRECA events; LinkedIn,,,to-contact,
+1,Oglethorpe Power Corporation,G&T cooperative,GA,Major Southeast G&T with generation fleet under CIP,Compliance + AI visibility,CISO; OT security manager; CIP compliance,Georgia EMC network; LinkedIn,,,to-contact,
+1,Tri-State Generation and Transmission Association,G&T cooperative,CO,Multi-state G&T; active on grid modernization,Compliance + AI visibility,CISO; OT security; CIP compliance,NRECA; LinkedIn,,,to-contact,
+1,Old Dominion Electric Cooperative,G&T cooperative,VA,Mid-Atlantic G&T; near DC policy community,Compliance + AI visibility,CISO; IT/OT director,NRECA (Arlington VA); LinkedIn,,,to-contact,
+1,Great River Energy,G&T cooperative,MN,Large G&T known for technology programs,Compliance + AI visibility,CISO; OT security,NRECA; LinkedIn,,,to-contact,
+1,Associated Electric Cooperative Inc.,G&T cooperative,MO,G&T serving co-ops across MO/IA/OK,Compliance + AI visibility,CISO; CIP compliance,NRECA; LinkedIn,,,to-contact,
+1,Seminole Electric Cooperative,G&T cooperative,FL,Florida G&T with generation under CIP,Compliance + AI visibility,CISO; OT security,NRECA; LinkedIn,,,to-contact,
+1,East Kentucky Power Cooperative,G&T cooperative,KY,G&T serving KY distribution co-ops,Compliance + AI visibility,CISO; CIP compliance,NRECA; LinkedIn,,,to-contact,
+1,Arkansas Electric Cooperative Corporation,G&T cooperative,AR,Statewide G&T,Compliance + AI visibility,CISO; OT security,NRECA; LinkedIn,,,to-contact,
+1,Dairyland Power Cooperative,G&T cooperative,WI,Upper Midwest G&T,Compliance + AI visibility,CISO; CIP compliance,NRECA; LinkedIn,,,to-contact,
+1,Brazos Electric Power Cooperative,G&T cooperative,TX,Texas G&T in ERCOT,Compliance + AI visibility,CISO; OT security,Texas Electric Cooperatives; LinkedIn,,,to-contact,
+1,PowerSouth Energy Cooperative,G&T cooperative,AL,G&T serving AL/FL co-ops,Compliance + AI visibility,CISO; CIP compliance,NRECA; LinkedIn,,,to-contact,
+1,Georgia Transmission Corporation,Transmission cooperative,GA,Transmission-only co-op; heavy CIP footprint,Compliance + AI visibility,CISO; OT security; CIP compliance,Georgia EMC network; LinkedIn,,,to-contact,
+1,American Municipal Power,Joint action agency,OH,Serves 100+ member municipal utilities in multiple states,Shared service for members,Cybersecurity lead; member services,APPA; LinkedIn,,,to-contact,One relationship reaches many munis
+1,Florida Municipal Power Agency,Joint action agency,FL,Serves Florida municipal utilities,Shared service for members,Cybersecurity lead; IT director,APPA; Florida Municipal Electric Association,,,to-contact,
+1,MEAG Power,Joint action agency,GA,Serves Georgia municipal utilities; nuclear and generation assets,Compliance + shared service,CISO; CIP compliance,APPA; LinkedIn,,,to-contact,
+1,Northern California Power Agency,Joint action agency,CA,Serves Northern California public power utilities,Shared service for members,IT/OT security lead,APPA; California Municipal Utilities Association,,,to-contact,
+1,Southern California Public Power Authority,Joint action agency,CA,Joint agency of Southern California public utilities,Shared service for members,Security lead,APPA,,,to-contact,
+1,WPPI Energy,Joint action agency,WI,Serves Wisconsin/Michigan/Iowa municipal utilities,Shared service for members,Member technology services,APPA,,,to-contact,
+1,ElectriCities of North Carolina,Joint action agency,NC,Serves North Carolina public power communities,Shared service for members,Cybersecurity lead,APPA,,,to-contact,
+1,Indiana Municipal Power Agency,Joint action agency,IN,Serves Indiana municipal utilities,Shared service for members,IT/security lead,APPA,,,to-contact,
+1,Utah Associated Municipal Power Systems,Joint action agency,UT,Serves public power in several Western states,Shared service for members,Security lead,APPA,,,to-contact,
+1,Municipal Energy Agency of Nebraska,Joint action agency,NE,Serves municipal utilities in several states,Shared service for members,IT/security lead,APPA,,,to-contact,
+1,Missouri Public Utility Alliance,Joint action agency,MO,Serves Missouri municipal utilities,Shared service for members,Member services; security lead,APPA,,,to-contact,
+2,Sacramento Municipal Utility District,Public power,CA,Large innovative public utility; strong tech programs,AI governance + compliance,CISO; OT security; innovation lead,APPA; DistribuTECH,,,to-contact,
+2,Salt River Project,Public power,AZ,Large public power and water utility (expansion fit),AI governance + compliance,CISO; OT security,APPA; LinkedIn,,,to-contact,Power + water
+2,Austin Energy,Public power,TX,Large municipal utility,AI governance + compliance,CISO; OT security,APPA; LinkedIn,,,to-contact,
+2,CPS Energy,Public power,TX,Large municipal utility (San Antonio),AI governance + compliance,CISO; OT security,APPA; LinkedIn,,,to-contact,
+2,Seattle City Light,Public power,WA,Large municipal utility,AI governance + compliance,CISO; OT security,APPA; LinkedIn,,,to-contact,
+2,Omaha Public Power District,Public power,NE,Large public power district,AI governance + compliance,CISO; CIP compliance,APPA; LinkedIn,,,to-contact,
+2,Nebraska Public Power District,Public power,NE,Statewide public power district,AI governance + compliance,CISO; CIP compliance,APPA; LinkedIn,,,to-contact,
+2,Lincoln Electric System,Public power,NE,Mid-size municipal utility,AI governance + compliance,IT/OT security lead,APPA,,,to-contact,
+2,Colorado Springs Utilities,Public power,CO,Multi-service utility (electric/gas/water),AI governance + compliance,CISO; OT security,APPA,,,to-contact,Multi-service
+2,Orlando Utilities Commission,Public power,FL,Mid-size municipal utility,AI governance + compliance,CISO; OT security,APPA,,,to-contact,
+2,JEA,Public power,FL,Large municipal electric/water utility,AI governance + compliance,CISO; OT security,APPA,,,to-contact,Power + water
+2,EPB (Chattanooga),Public power,TN,Known for smart grid and fiber innovation,AI governance; early adopter,CISO; smart grid lead,APPA,,,to-contact,Likely early adopter
+2,Knoxville Utilities Board,Public power,TN,Multi-service municipal utility,AI governance + compliance,IT/OT security lead,APPA,,,to-contact,
+2,Platte River Power Authority,Public power,CO,Wholesale public power for four Colorado cities,AI governance + compliance,CISO; CIP compliance,APPA,,,to-contact,
+2,Snohomish County PUD,Public power,WA,Large public utility district,AI governance + compliance,CISO; OT security,APPA,,,to-contact,
+2,Tacoma Power,Public power,WA,Municipal utility,AI governance + compliance,IT/OT security lead,APPA,,,to-contact,
+2,Lower Colorado River Authority,Public power,TX,Wholesale power and water authority,AI governance + compliance,CISO; OT security,APPA,,,to-contact,Power + water
+2,Santee Cooper,Public power,SC,State-owned utility,AI governance + compliance,CISO; CIP compliance,APPA,,,to-contact,
+2,New York Power Authority,Public power,NY,Largest state public power organization; digital utility programs,AI governance; innovation,CISO; digital/innovation lead,APPA,,,to-contact,
+2,Los Angeles Department of Water and Power,Public power,CA,Largest municipal utility; power + water,AI governance + compliance,CISO; OT security,APPA,,,to-contact,Power + water
+2,Pedernales Electric Cooperative,Distribution cooperative,TX,Largest US distribution co-op,AI visibility,IT/OT director; security lead,Texas Electric Cooperatives,,,to-contact,
+2,Jackson EMC,Distribution cooperative,GA,Large Georgia distribution co-op,AI visibility,IT director; security lead,Georgia EMC,,,to-contact,
+2,Cobb EMC,Distribution cooperative,GA,Large Georgia distribution co-op,AI visibility,IT director; security lead,Georgia EMC,,,to-contact,
+2,Middle Tennessee Electric,Distribution cooperative,TN,Large Tennessee distribution co-op,AI visibility,IT director; security lead,Tennessee Electric Cooperative Association,,,to-contact,
+2,Holy Cross Energy,Distribution cooperative,CO,Known for grid innovation,AI visibility; early adopter,IT/OT lead; innovation,Colorado Rural Electric Association,,,to-contact,Likely early adopter
+2,Roanoke Electric Cooperative,Distribution cooperative,NC,Small co-op known for technology pilots,AI visibility; design partner,CEO; IT lead,NC Electric Cooperatives,,,to-contact,Possible design partner
+2,Connexus Energy,Distribution cooperative,MN,Large Minnesota co-op,AI visibility,IT director; security lead,Minnesota Rural Electric Association,,,to-contact,
+2,Chugach Electric Association,Distribution cooperative,AK,Alaska's largest electric utility,AI visibility + compliance,IT/OT security lead,NRECA,,,to-contact,
+3,NRECA,Association,VA,National co-op association; cybersecurity programs for members,Channel; credibility,Cybersecurity program staff,NRECA events,,,to-contact,Channel to 800+ co-ops
+3,American Public Power Association,Association,DC,National public power association; cybersecurity programs,Channel; credibility,Cybersecurity and security program staff,APPA events,,,to-contact,Channel to 2000 munis
+3,E-ISAC,Information sharing center,DC,Grid security community run by NERC,Credibility; threat insight,Analysts; member engagement,GridSecCon; E-ISAC events,,,to-contact,
+3,Idaho National Laboratory,National lab,ID,Leading ICS/grid security research and training,Research partner; credibility; grants,ICS security researchers,Conferences; DOE programs,,,to-contact,Grant partner
+3,Pacific Northwest National Laboratory,National lab,WA,Grid and cybersecurity research,Research partner; grants,Grid cybersecurity researchers,Conferences; DOE programs,,,to-contact,Grant partner
+3,EPRI,Research institute,CA,Utility-funded R&D; runs cybersecurity and AI programs,Credibility; access to utilities,Cybersecurity program managers,EPRI events,,,to-contact,
+3,DOE CESER,Federal agency,DC,Funds energy cybersecurity R&D,Grants and pilots,Program managers,Funding calls; events,,,to-contact,Non-dilutive funding
+3,Georgia EMC,Statewide association,GA,Statewide association for Georgia co-ops,Channel to member co-ops,Member services; IT program staff,Annual meeting,,,to-contact,
+3,Texas Electric Cooperatives,Statewide association,TX,Statewide association for Texas co-ops,Channel to member co-ops,Member services,Annual meeting,,,to-contact,

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praetorium Gate</title>
+<style>
+  :root {
+    --bg: #0E1216; --panel: #1A2026; --line: #2E363E; --bone: #ECEAE4;
+    --mist: #A9B1B8; --brass: #C8A951; --red: #F07167; --green: #7BC59A; --blue: #8AB4F8;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--bone); font: 14px/1.45 Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--line); gap: 16px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: baseline; gap: 12px; }
+  .brand h1 { margin: 0; font-size: 20px; letter-spacing: -0.3px; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .tag { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--brass); }
+  .chip { padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; }
+  .chip.ok { color: var(--green); border-color: #2f5a40; }
+  .chip.bad { color: var(--red); border-color: #6b2f2c; }
+  button, a.btn { background: var(--brass); color: var(--bg); border: 0; padding: 8px 14px; font-weight: 600; cursor: pointer; border-radius: 4px; text-decoration: none; font-size: 13px; }
+  button.ghost { background: transparent; color: var(--bone); border: 1px solid var(--line); }
+  main { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; padding: 16px 24px 32px; }
+  section { background: var(--panel); border-top: 3px solid var(--brass); padding: 16px; min-width: 0; }
+  section h2 { margin: 0 0 12px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--mist); font-weight: 600; }
+  .grid { grid-column: span 7; } .holds { grid-column: span 5; }
+  .agents { grid-column: span 7; } .alerts { grid-column: span 5; }
+  .audit { grid-column: span 12; }
+  @media (max-width: 1000px) { .grid, .holds, .agents, .alerts { grid-column: span 12; } }
+  .feeders { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+  .feeder { border: 1px solid var(--line); padding: 12px; }
+  .feeder .state { font-weight: 700; margin: 4px 0; }
+  .closed { color: var(--green); } .open { color: var(--red); }
+  .big { font-size: 26px; font-weight: 600; }
+  .readings { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .reading { border: 1px solid var(--line); padding: 10px 12px; }
+  .label { color: var(--mist); font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--mist); font-weight: 600; font-size: 12px; }
+  .scroll { overflow-x: auto; }
+  .d-allowed { color: var(--green); } .d-held { color: var(--brass); } .d-denied, .d-rejected { color: var(--red); }
+  .d-approved { color: var(--blue); } .d-released { color: var(--mist); }
+  .s-active { color: var(--green); } .s-quarantined, .s-blocked { color: var(--red); }
+  .hold { border: 1px solid var(--brass); padding: 14px; margin-bottom: 10px; }
+  .hold .row { display: flex; gap: 8px; margin-top: 10px; }
+  .empty { color: var(--mist); }
+  .alert { border-left: 3px solid var(--red); padding: 8px 10px; margin-bottom: 8px; background: #20262c; }
+  .alert.high { border-color: var(--brass); }
+  .hash { color: var(--mist); font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><h1>Praetorium Gate</h1><span class="tag mono">Substation 14 · Demo</span></div>
+  <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+    <span id="chain" class="chip mono">Audit chain: …</span>
+    <span id="count" class="chip mono">0 entries</span>
+    <a class="btn" href="/api/report">Download evidence report</a>
+  </div>
+</header>
+<main>
+  <section class="grid">
+    <h2>Substation (live, simulated)</h2>
+    <div class="feeders" id="feeders"></div>
+    <div class="readings" id="readings"></div>
+  </section>
+  <section class="holds">
+    <h2>Hold points: awaiting human sign-off</h2>
+    <div id="holds"></div>
+  </section>
+  <section class="agents">
+    <h2>AI agent inventory</h2>
+    <div class="scroll"><table><thead><tr><th>Agent</th><th>Owner</th><th>Status</th><th>Allowed</th><th>Held</th><th>Denied</th><th></th></tr></thead><tbody id="agents"></tbody></table></div>
+  </section>
+  <section class="alerts">
+    <h2>Alerts</h2>
+    <div id="alerts"></div>
+  </section>
+  <section class="audit">
+    <h2>Audit trail (hash-chained)</h2>
+    <div class="scroll"><table><thead><tr><th>Time (UTC)</th><th>Agent</th><th>Action</th><th>Point</th><th>Decision</th><th>Reason</th><th>Hash</th></tr></thead><tbody id="audit"></tbody></table></div>
+  </section>
+</main>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+async function post(path, body) { await fetch(path, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body || {})}); refresh(); }
+function render(s) {
+  const g = s.grid || {};
+  document.getElementById("chain").textContent = "Audit chain: " + (s.chain_ok ? "intact" : "BROKEN");
+  document.getElementById("chain").className = "chip mono " + (s.chain_ok ? "ok" : "bad");
+  document.getElementById("count").textContent = s.audit_count + " entries";
+  document.getElementById("feeders").innerHTML = [1,2,3].map(i => {
+    const closed = g[`feeder_${i}_breaker`];
+    return `<div class="feeder"><div class="label">Feeder ${i}</div>
+      <div class="state ${closed ? "closed" : "open"}">Breaker ${closed ? "CLOSED" : "OPEN"}</div>
+      <div class="big">${g[`feeder_${i}_load`] ?? "–"} <span class="label">kW</span></div></div>`;
+  }).join("");
+  const r = (label, val) => `<div class="reading"><div class="label">${label}</div><div class="big">${val}</div></div>`;
+  document.getElementById("readings").innerHTML =
+    r("Bus voltage", g.bus_voltage != null ? (g.bus_voltage / 10).toFixed(1) + " V" : "–") +
+    r("Regulator tap", g.regulator_tap != null ? (g.regulator_tap > 0 ? "+" : "") + g.regulator_tap : "–") +
+    r("Setpoint", g.voltage_setpoint != null ? (g.voltage_setpoint / 10).toFixed(1) + " V" : "–") +
+    r("Frequency", g.frequency != null ? (g.frequency / 100).toFixed(2) + " Hz" : "–");
+  document.getElementById("holds").innerHTML = s.pending.length ? s.pending.map(h => `
+    <div class="hold"><div class="tag mono">${esc(h.agent)} · ${esc(h.owner)}</div>
+      <div style="margin-top:6px; font-size:16px;"><b>${esc(h.label)}</b>: ${esc(h.current)} → <b>${esc(h.value)}</b></div>
+      <div class="label">Requested ${esc(h.requested_at)}</div>
+      <div class="row"><button onclick="post('/api/approve/${h.id}', {approver: 'Control room operator'})">Approve</button>
+      <button class="ghost" onclick="post('/api/reject/${h.id}', {approver: 'Control room operator'})">Reject</button></div></div>`).join("")
+    : `<p class="empty">No AI actions waiting. Anything that could change the physical grid stops here first.</p>`;
+  document.getElementById("agents").innerHTML = s.agents.map(a => `<tr>
+    <td><b>${esc(a.name)}</b><div class="label">${esc(a.description)}</div></td><td>${esc(a.owner)}</td>
+    <td class="s-${esc(a.status)}">${esc(a.status)}${a.registered ? "" : " (unregistered)"}</td>
+    <td>${a.allowed}</td><td>${a.held}</td><td>${a.denied}</td>
+    <td>${a.status === "quarantined" ? `<button class="ghost" onclick="post('/api/release/${esc(a.name)}', {approver: 'Security analyst'})">Release</button>` : ""}</td></tr>`).join("");
+  document.getElementById("alerts").innerHTML = s.alerts.length ? s.alerts.map(a =>
+    `<div class="alert ${esc(a.severity)}"><div class="tag mono">${esc(a.severity)} · ${esc(a.agent)}</div>${esc(a.message)}<div class="label">${esc(a.ts)}</div></div>`).join("")
+    : `<p class="empty">No alerts.</p>`;
+  document.getElementById("audit").innerHTML = s.audit.map(e => `<tr>
+    <td class="mono">${esc(e.ts.slice(11, 22))}</td><td>${esc(e.agent)}</td><td>${esc(e.action)}</td>
+    <td>${esc(e.point ?? "")}${e.value != null ? " = " + esc(e.value) : ""}</td>
+    <td class="d-${esc(e.decision)}"><b>${esc(e.decision)}</b></td><td>${esc(e.reason)}${e.approver ? " (" + esc(e.approver) + ")" : ""}</td>
+    <td class="mono hash">${esc(e.hash.slice(0, 12))}</td></tr>`).join("");
+}
+async function refresh() { try { render(await (await fetch("/api/state")).json()); } catch (e) {} }
+refresh(); setInterval(refresh, 1000);
+</script>
+</body>
+</html>

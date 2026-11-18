@@ -1,0 +1,12 @@
+{
+  "feeder_1_breaker": {"type": "coil", "address": 0, "class": "protection", "label": "Feeder 1 breaker"},
+  "feeder_2_breaker": {"type": "coil", "address": 1, "class": "protection", "label": "Feeder 2 breaker"},
+  "feeder_3_breaker": {"type": "coil", "address": 2, "class": "protection", "label": "Feeder 3 breaker"},
+  "regulator_tap": {"type": "holding", "address": 0, "class": "control", "label": "Voltage regulator tap", "offset": 16},
+  "voltage_setpoint": {"type": "holding", "address": 1, "class": "control", "label": "Voltage setpoint (V x10)"},
+  "feeder_1_load": {"type": "input", "address": 0, "class": "measurement", "label": "Feeder 1 load (kW)"},
+  "feeder_2_load": {"type": "input", "address": 1, "class": "measurement", "label": "Feeder 2 load (kW)"},
+  "feeder_3_load": {"type": "input", "address": 2, "class": "measurement", "label": "Feeder 3 load (kW)"},
+  "bus_voltage": {"type": "input", "address": 3, "class": "measurement", "label": "Bus voltage (V x10)"},
+  "frequency": {"type": "input", "address": 4, "class": "measurement", "label": "Frequency (Hz x100)"}
+}

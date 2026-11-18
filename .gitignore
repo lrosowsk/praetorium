@@ -1,3 +1,5 @@
 # Interview notes contain confidential conversations; keep them out of git by default
 discovery/notes/
 .DS_Store
+demo/audit.jsonl
+__pycache__/
