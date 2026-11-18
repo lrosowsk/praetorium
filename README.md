@@ -1,8 +1,8 @@
-# Lockout Defense
+# Holdpoint Defense
 
-**The safety lockout for AI in critical infrastructure.** Lockout Defense ("Lockout" for short) is a policy layer between AI (vendor copilots, engineering agents, analytics models) and the operational systems that run the grid. It discovers what AI can reach, enforces what it may do, detects machine-speed attacks, and produces audit evidence for regulators.
+**The human sign-off for AI in critical infrastructure.** Holdpoint Defense ("Holdpoint" for short) is a policy layer between AI (vendor copilots, engineering agents, analytics models) and the operational systems that run the grid. It discovers what AI can reach, enforces what it may do, detects machine-speed attacks, and produces audit evidence for regulators.
 
-The name comes from lockout/tagout, the safety procedure every utility operator knows. Run a trademark search before using it publicly, and note that Lookout, a mobile security company, is one letter away.
+The name comes from the hold point: the step in a utility work procedure that nobody may pass until a qualified person signs off. Run a trademark search before using it publicly.
 
 ## Where we are
 
