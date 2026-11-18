@@ -1,28 +1,28 @@
 <section id="how">
-<p class="eyebrow">06 · How it works</p>
-<h2>Every AI action passes through one gate.</h2>
+<p class="eyebrow">How it works</p>
+<h2>Every AI request goes through one gate.</h2>
 <div style="display:grid; grid-template-columns:480px 96px 480px 96px 480px; align-items:center;">
 <div style="display:flex; flex-direction:column; gap:24px;">
-<div class="node rise" style="--i:0;"><p class="nh">Vendor copilots</p><p class="nt">AI inside SCADA and EMS tools</p></div>
-<div class="node rise" style="--i:1;"><p class="nh">Engineering agents</p><p class="nt">Coding agents, MCP tools, scripts</p></div>
-<div class="node rise" style="--i:2;"><p class="nh">Analytics models</p><p class="nt">Forecasting, maintenance, dispatch</p></div>
+<div class="node rise" style="--i:0;"><p class="nh">AI in grid software</p><p class="nt">Assistants built in by vendors</p></div>
+<div class="node rise" style="--i:1;"><p class="nh">Engineers’ AI tools</p><p class="nt">Coding and automation agents</p></div>
+<div class="node rise" style="--i:2;"><p class="nh">Forecasting models</p><p class="nt">Demand, maintenance, dispatch</p></div>
 </div>
-<x-connector head="end" style="width:96px; height:2px; color:#3E4C5E; border-width:4px;"></x-connector>
+<x-connector head="end" style="width:96px; height:2px; color:#46524A; border-width:4px;"></x-connector>
 <div class="node gate rise" style="--i:3; padding:40px; gap:16px;">
 <p class="nh" style="font-size:44px;">Preceptor gate</p>
-<p class="nt">1. Identify the agent and its owner</p>
-<p class="nt">2. Check the action against policy</p>
-<p class="nt">3. Hold risky actions for a human</p>
-<p class="nt">4. Log the decision as evidence</p>
+<p class="nt">1. Who is this AI, and who owns it?</p>
+<p class="nt">2. Is this action allowed?</p>
+<p class="nt">3. Risky? Ask a human first.</p>
+<p class="nt">4. Record the decision.</p>
 </div>
-<x-connector head="end" style="width:96px; height:2px; color:#3E4C5E; border-width:4px;"></x-connector>
+<x-connector head="end" style="width:96px; height:2px; color:#46524A; border-width:4px;"></x-connector>
 <div style="display:flex; flex-direction:column; gap:24px;">
-<div class="node rise" style="--i:4;"><p class="nh">Historian</p><p class="nt">Read-only by default</p></div>
-<div class="node rise" style="--i:5;"><p class="nh">SCADA / EMS</p><p class="nt">Writes need human approval</p></div>
-<div class="node rise" style="--i:6;"><p class="nh">Protection relays</p><p class="nt">Never reachable by AI</p></div>
+<div class="node rise" style="--i:4;"><p class="nh">Data systems</p><p class="nt">AI may read</p></div>
+<div class="node rise" style="--i:5;"><p class="nh">Grid controls</p><p class="nt">A human must approve</p></div>
+<div class="node rise" style="--i:6;"><p class="nh">Safety equipment</p><p class="nt">AI can never touch</p></div>
 </div>
 </div>
-<p class="text" style="width:1500px;">Deploys in observe-only mode first, as a network sensor and an API gateway, so utilities see value before anything is blocked.</p>
+<p class="text" style="width:1600px;">Starts in watch-only mode, so a utility sees value before anything is ever blocked.</p>
 <div class="foot"><p>Preceptor Defense · Confidential</p><p class="pg"></p></div>
 <aside>Keep this simple in the room. Left: the ways AI shows up. Middle: us. Right: the systems AI should touch only on the operator’s terms. The detail to stress is observe-only first: utilities will not put anything inline with operations until they trust it. This is the architecture the prototype will demonstrate against simulated Modbus and DNP3 equipment.</aside>
 </section>
