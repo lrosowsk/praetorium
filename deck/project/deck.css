@@ -1,15 +1,15 @@
 :root {
-  --dark: #16181B;
-  --dark-2: #23262B;
-  --paper: #F4F4F2;
-  --paper-2: #E6E6E3;
-  --amber: #F5C518;
-  --amber-ink: #7A5F00;
-  --ink: #16181B;
-  --ink-soft: #45484D;
-  --mist: #B4B7BB;
-  --line-dark: #34383E;
-  --line-light: #D2D2CE;
+  --dark: #0A1A2F;
+  --dark-2: #13263F;
+  --paper: #F2F5F9;
+  --paper-2: #E2E8F0;
+  --amber: #4C8DFF;
+  --amber-ink: #1F5FCC;
+  --ink: #0A1A2F;
+  --ink-soft: #3E4C5E;
+  --mist: #A9B8CA;
+  --line-dark: #233A57;
+  --line-light: #C9D3E0;
 }
 
 body { font-family: 'Inter', Arial, sans-serif; }
