@@ -19,6 +19,15 @@ Every number used in the deck, where it came from, and how much to trust it. Res
 | Public power | ~2,000 (EIA counted 1,958) | [APPA](https://www.publicpower.org/system/files/documents/Chapter%201%20-%20What%20is%20Public%20Power.pdf); EIA | High |
 | Cooperatives | ~812 distribution co-ops (NRECA: 832 distribution + 63 G&T) | EIA; [NRECA fact sheet](https://www.cooperative.com/programs-services/bts/Documents/Data/Electric-Co-op-Fact-Sheet.pdf) | High |
 
+## Expansion markets
+
+| Fact | Figure | Source | Confidence |
+|---|---|---|---|
+| Publicly owned wastewater treatment works | 17,544, serving ~270M people (2022) | [EPA Clean Watersheds Needs Survey 2022](https://www.epa.gov/system/files/documents/2024-05/2022-cwns-summary.pdf) | High |
+| Drinking water systems | “Tens of thousands” of community systems; ~148,000 public water systems of all types | [EPA (archived)](https://19january2021snapshot.epa.gov/dwreginfo/information-about-public-water-systems_.html) | Medium. *Get the current community water system count from EPA SDWIS* |
+| Commercial service airports | ~500 (federal counts range ~500–570 over the years) | [BTS](https://www.bts.gov/archive/publications/national_transportation_statistics/table_01_25) | Medium. *Check the latest FAA NPIAS report* |
+| Pipelines | Critical pipeline operators are under TSA security directives | TSA | *Find an operator count* |
+
 ## AI adoption in utilities
 
 | Fact | Figure | Source | Confidence |
