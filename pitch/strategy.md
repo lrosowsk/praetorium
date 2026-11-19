@@ -48,7 +48,7 @@ Raise smaller ($500K–$1M from angels) if you have no grid-security co-founder 
 
 ## What to do this week
 1. Search “Preceptor” on tmsearch.uspto.gov and check domains.
-2. Start outreach to the first 15 prospects, and offer a Snapshot assessment when a call surfaces real AI concerns (`discovery/prospects.md`) using `discovery/03-outreach-templates.md`.
+2. Start outreach to the first 15 prospects using `discovery/outreach-drafts.md`, and offer a Snapshot assessment when a call surfaces real AI concerns.
 3. Practise the 2-minute pitch (`pitch/script.md`) and run the demo (`demo/run_demo.sh`) until it’s smooth.
 4. Start recruiting the grid-security co-founder: ask every interviewee who they’d trust.
 5. Fill in your bio on the team slide and in the script.
