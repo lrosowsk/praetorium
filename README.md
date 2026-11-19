@@ -23,6 +23,7 @@ Working prototype built (`demo/`). Now in customer discovery: 30 interviews with
 | `research/market-facts.md` | Every number in the deck, with sources and confidence |
 | `research/name-check.md` | Trademark check for the Preceptor name |
 | `discovery/prospects.csv` | 61 organizations to contact first, prioritized (guide in `prospects.md`) |
+| `services/` | AI in OT Risk Assessment: offer, playbook, templates, log scanner and sales sheet |
 | `demo/` | Working prototype: AI agents, a simulated substation, the Preceptor gate and dashboard |
 | `deck/project/` | Source files for the pitch deck (one HTML file per slide) |
 | `pitch/strategy.md` | One-page strategy: positioning, raise, milestones, risks |

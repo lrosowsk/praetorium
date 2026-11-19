@@ -13,6 +13,9 @@ Smaller US power companies: generation-and-transmission co-ops, joint action age
 4. **Low-risk deployment.** Step 1: gate the AI tools the utility controls (software only). Step 2: watch-only, using existing sensors. Step 3: enforce once trusted, failing safe. Everything on-premises.
 5. **Compliance pulls the budget.** US regulators require monitoring inside control networks by 2028. AI evidence rides on that obligation.
 
+## Revenue before the product
+Sell **AI in OT Risk Assessments** now (`services/`): Snapshot from $15K, Full Assessment from $40K, advisory retainers from $5K/month. Target 3 design-partner assessments in 4 months and 8–10 in year one. Every assessment is paid discovery and leads into a Preceptor pilot. “We already have paying customers” strengthens the raise.
+
 ## The raise
 **$2M pre-seed, post-money SAFE, ~$12–15M cap** (about 13–17% dilution). 18 months of runway to paid pilots and seed-ready revenue.
 
@@ -45,7 +48,7 @@ Raise smaller ($500K–$1M from angels) if you have no grid-security co-founder 
 
 ## What to do this week
 1. Search “Preceptor” on tmsearch.uspto.gov and check domains.
-2. Start outreach to the first 15 prospects (`discovery/prospects.md`) using `discovery/03-outreach-templates.md`.
+2. Start outreach to the first 15 prospects, and offer a Snapshot assessment when a call surfaces real AI concerns (`discovery/prospects.md`) using `discovery/03-outreach-templates.md`.
 3. Practise the 2-minute pitch (`pitch/script.md`) and run the demo (`demo/run_demo.sh`) until it’s smooth.
 4. Start recruiting the grid-security co-founder: ask every interviewee who they’d trust.
 5. Fill in your bio on the team slide and in the script.
