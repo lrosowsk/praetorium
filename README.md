@@ -16,6 +16,7 @@ Working prototype built (`demo/`). Now in customer discovery: 30 interviews with
 | `discovery/02-target-list.md` | Who to talk to, the interview mix, and where to find people |
 | `discovery/target-list.csv` | Tracking sheet for every contact (opens in Excel or Google Sheets) |
 | `discovery/03-outreach-templates.md` | Cold email, LinkedIn note, follow-ups, warm-intro and thank-you templates |
+| `discovery/outreach-drafts.md` | Ready-to-send drafts for the first 15 prospects |
 | `discovery/04-interview-notes-template.md` | Copy for each interview |
 | `discovery/05-scoring-and-synthesis.md` | Scoring rubric, synthesis table, decision rules, pilot LOI template |
 | `discovery/06-one-page-brief.md` | Research brief to send ahead of calls |
