@@ -24,6 +24,8 @@ Working prototype built (`demo/`). Now in customer discovery: 30 interviews with
 | `research/name-check.md` | Trademark check for the Preceptor name |
 | `discovery/prospects.csv` | 61 organizations to contact first, prioritized (guide in `prospects.md`) |
 | `services/` | AI in OT Risk Assessment: offer, playbook, templates, log scanner and sales sheet |
+| `website/` | Company website (static; deploys to Netlify with a working contact form) |
+| `product/deployment-roadmap.md` | Prototype-to-production phases and the step-by-step customer rollout |
 | `demo/` | Working prototype: AI agents, a simulated substation, the Preceptor gate and dashboard |
 | `deck/project/` | Source files for the pitch deck (one HTML file per slide) |
 | `pitch/strategy.md` | One-page strategy: positioning, raise, milestones, risks |

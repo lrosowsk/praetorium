@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preceptor Defense</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Preceptor sits between AI systems and the equipment that runs the grid. Safe AI actions go through, risky ones wait for a person, dangerous ones are blocked, and everything is recorded.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column with a full-width "request log" as the hero, inverted bands for emphasis; strict neutral grays */
+:root {
+  --bg: #F5F5F5; --surface: #FFFFFF; --fg: #0F0F0F; --muted: #4A4A4A; --faint: #8A8A8A; --line: #D0D0D0;
+  --inv-bg: #0F0F0F; --inv-surface: #1C1C1C; --inv-fg: #F5F5F5; --inv-muted: #B0B0B0; --inv-line: #2E2E2E;
+  --display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F0F0F; --surface: #1C1C1C; --fg: #F5F5F5; --muted: #B0B0B0; --faint: #7A7A7A; --line: #2E2E2E;
+  --inv-bg: #F5F5F5; --inv-surface: #FFFFFF; --inv-fg: #0F0F0F; --inv-muted: #4A4A4A; --inv-line: #D0D0D0; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0F0F0F; --surface: #1C1C1C; --fg: #F5F5F5; --muted: #B0B0B0; --faint: #7A7A7A; --line: #2E2E2E;
+  --inv-bg: #F5F5F5; --inv-surface: #FFFFFF; --inv-fg: #0F0F0F; --inv-muted: #4A4A4A; --inv-line: #D0D0D0; color-scheme: dark }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.015em; text-wrap: balance; }
+h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1.02; font-weight: 700; }
+h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; font-weight: 600; }
+h3 { font-size: 19px; line-height: 1.3; font-weight: 600; }
+p { margin: 0; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 20px; color: var(--muted); max-width: 60ch; }
+.muted { color: var(--muted); }
+section { padding-block: 88px; }
+.section-head { display: flex; flex-direction: column; gap: 14px; max-width: 760px; margin-bottom: 40px; }
+
+/* Nav */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--bg); z-index: 20; }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.brand { font-family: var(--display); font-weight: 700; font-size: 19px; text-decoration: none; letter-spacing: -0.01em; }
+.nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; font-size: 15px; }
+.nav ul a { text-decoration: none; color: var(--muted); }
+.nav ul a:hover { color: var(--fg); }
+.btn { display: inline-block; background: var(--fg); color: var(--bg); text-decoration: none; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 4px; border: 2px solid var(--fg); cursor: pointer; font-family: var(--body); }
+.btn.ghost { background: transparent; color: var(--fg); }
+.btn:hover { opacity: 0.88; }
+
+/* Hero */
+.hero { padding-block: 72px 64px; }
+.hero .wrap { display: flex; flex-direction: column; gap: 26px; }
+.hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.status { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+/* Request log: the product in one picture */
+.log { margin-top: 18px; background: var(--inv-bg); color: var(--inv-fg); border-radius: 6px; overflow: hidden; }
+.log-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 20px; border-bottom: 1px solid var(--inv-line); font-family: var(--mono); font-size: 12px; color: var(--inv-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.log-table { width: 100%; overflow-x: auto; }
+.row { display: grid; grid-template-columns: 150px 1fr 220px; gap: 20px; padding: 16px 20px; border-bottom: 1px solid var(--inv-line); align-items: start; min-width: 640px; }
+.row:last-child { border-bottom: none; }
+.who { font-family: var(--mono); font-size: 14px; }
+.who small { display: block; color: var(--inv-muted); font-size: 12px; margin-top: 2px; font-family: var(--body); }
+.what { font-size: 16px; }
+.what small { display: block; color: var(--inv-muted); font-size: 13px; margin-top: 4px; }
+.verdict { font-family: var(--mono); font-size: 13px; font-weight: 500; display: flex; flex-direction: column; gap: 4px; }
+.pill { display: inline-block; align-self: flex-start; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px; }
+.pill.allow { border: 1px solid var(--inv-muted); color: var(--inv-fg); }
+.pill.hold { border: 1px dashed var(--inv-fg); color: var(--inv-fg); }
+.pill.block { background: var(--inv-fg); color: var(--inv-bg); font-weight: 600; }
+.verdict span.note { color: var(--inv-muted); font-family: var(--body); font-size: 13px; font-weight: 400; }
+
+/* Three outcomes */
+.outcomes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--fg); }
+.outcomes > div { padding: 24px 24px 8px 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.outcomes > div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+.outcomes .eg { font-family: var(--mono); font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; margin-top: auto; }
+
+/* Problem band */
+.band { background: var(--inv-bg); color: var(--inv-fg); }
+.band .label, .band .muted, .band .lede { color: var(--inv-muted); }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.fact { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--inv-line); padding-top: 18px; min-width: 0; }
+.fact .n { font-family: var(--display); font-size: 48px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.fact .src { font-size: 13px; color: var(--inv-muted); margin-top: 4px; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.step { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.step .k { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+/* Fit */
+.fit { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); background: var(--surface); }
+.fit > div { padding: 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.fit > div + div { border-left: 1px solid var(--line); }
+.fit ul { margin: 0; padding-left: 18px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+
+/* Demo */
+.demo { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+.demo figure { margin: 0; border: 1px solid var(--line); background: var(--surface); }
+.demo figcaption { font-size: 13px; color: var(--muted); padding: 10px 14px; border-top: 1px solid var(--line); }
+
+/* Deploy */
+.deploy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.deploy > div { background: var(--surface); border: 1px solid var(--line); padding: 24px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.deploy .k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.guarantees { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 24px; font-size: 15px; color: var(--muted); }
+.guarantees span::before { content: "— "; color: var(--faint); }
+
+/* Assessment */
+.assess { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.pkgs { display: flex; flex-direction: column; border-top: 2px solid var(--fg); }
+.pkg { display: grid; grid-template-columns: 1fr auto; gap: 6px 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.pkg .price { font-family: var(--display); font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums; }
+.pkg p { grid-column: 1 / -1; color: var(--muted); font-size: 15px; }
+
+/* FAQ */
+.faq { border-top: 2px solid var(--fg); }
+.faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+.faq summary { cursor: pointer; font-family: var(--display); font-size: 19px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--mono); color: var(--muted); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { color: var(--muted); margin-top: 10px; max-width: 70ch; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+form { display: flex; flex-direction: column; gap: 14px; }
+label { font-size: 14px; font-weight: 600; display: flex; flex-direction: column; gap: 6px; }
+input, textarea, select { font: 16px var(--body); padding: 11px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--fg); }
+textarea { min-height: 110px; resize: vertical; }
+.form-msg { font-size: 15px; color: var(--muted); min-height: 1.5em; }
+.email { font-family: var(--mono); user-select: all; }
+footer { border-top: 1px solid var(--line); padding-block: 28px; font-size: 14px; color: var(--muted); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .nav ul { display: none; }
+  .outcomes, .facts, .steps, .fit, .demo, .deploy, .assess, .contact { grid-template-columns: 1fr; }
+  .outcomes > div, .outcomes > div + div { padding-left: 0; border-left: none; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .fit > div + div { border-left: none; border-top: 1px solid var(--line); }
+  .steps { gap: 24px; }
+  section { padding-block: 64px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Preceptor Defense</a>
+    <ul>
+      <li><a href="#what">What it does</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#deploy">Deployment</a></li>
+      <li><a href="#assessment">Assessment</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn" href="#contact">Talk to us</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="label">AI safety for critical infrastructure</span>
+    <h1>AI is starting to operate the grid. Preceptor makes sure a person signs off first.</h1>
+    <p class="lede">Preceptor sits between AI systems and the equipment that runs a utility. Safe AI actions go through. Risky ones wait for an operator to approve. Dangerous ones are blocked. Every decision is recorded.</p>
+    <div class="ctas">
+      <a class="btn" href="#contact">Book a 25-minute call</a>
+      <a class="btn ghost" href="#assessment">Get an AI in OT assessment</a>
+    </div>
+
+    <div class="log" role="table" aria-label="Example: AI requests and what Preceptor decided">
+      <div class="log-head"><span>Preceptor · Substation 14 · AI requests</span><span>Example</span></div>
+      <div class="log-table">
+        <div class="row" role="row">
+          <div class="who" role="cell">forecast-model<small>Grid analytics team</small></div>
+          <div class="what" role="cell">Read the load on feeders 1–3<small>Inside its approved read scope</small></div>
+          <div class="verdict" role="cell"><span class="pill allow">Allowed</span><span class="note">Logged</span></div>
+        </div>
+        <div class="row" role="row">
+          <div class="who" role="cell">ems-copilot<small>AI built into the control software</small></div>
+          <div class="what" role="cell">Raise the voltage regulator tap from 0 to +2<small>Changes grid equipment, so a person decides</small></div>
+          <div class="verdict" role="cell"><span class="pill hold">Held</span><span class="note">Approved by the control room operator, 14:02</span></div>
+        </div>
+        <div class="row" role="row">
+          <div class="who" role="cell">shadow-agent<small>Unknown: nobody registered it</small></div>
+          <div class="what" role="cell">Read bus voltage<small>Not on the AI inventory</small></div>
+          <div class="verdict" role="cell"><span class="pill block">Blocked</span><span class="note">Added to inventory for review</span></div>
+        </div>
+        <div class="row" role="row">
+          <div class="who" role="cell">eng-assistant-7<small>Engineering AI tool</small></div>
+          <div class="what" role="cell">Open the feeder 2 breaker<small>Safety equipment is never reachable by AI</small></div>
+          <div class="verdict" role="cell"><span class="pill block">Blocked</span><span class="note">Alert raised. Agent quarantined after scanning the network.</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="status">Working prototype. Now taking design partners.</p>
+  </div>
+</header>
+
+<section id="what">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">What it does</span>
+      <h2>Every AI request gets one of three answers.</h2>
+      <p class="lede">The utility writes the rules in plain terms. Preceptor applies them to every AI system that can reach its control equipment.</p>
+    </div>
+    <div class="outcomes">
+      <div>
+        <h3>Allowed</h3>
+        <p class="muted">Low-risk actions inside the AI’s approved scope, like reading meter data or forecasting load. They go straight through.</p>
+        <p class="eg">“This model may read telemetry.”</p>
+      </div>
+      <div>
+        <h3>Held for a person</h3>
+        <p class="muted">Anything that would change how equipment runs, like a setpoint or schedule. It waits until a qualified person approves it.</p>
+        <p class="eg">“Voltage changes need operator approval.”</p>
+      </div>
+      <div>
+        <h3>Blocked</h3>
+        <p class="muted">Actions AI should never take, like operating breakers or safety systems, and anything from AI the utility hasn’t approved.</p>
+        <p class="eg">“AI can never touch protection equipment.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Why it matters</span>
+      <h2 id="why-title">In most industries an AI mistake leaks data. On the grid, it can cause a blackout.</h2>
+      <p class="lede">Utilities are putting AI into daily operations through vendor software, engineers’ tools and analytics. Attackers are using AI too. Today nobody can say which AI touched what.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="n">62%</span><p>of utilities say they are rolling out AI at scale, and that security is what holds them back.</p><span class="src">Cisco, State of Industrial AI: Utilities, 2026 (vendor survey)</span></div>
+      <div class="fact"><span class="n">80–90%</span><p>of the hacking in a 2025 state-sponsored attack campaign was carried out by an AI agent.</p><span class="src">Anthropic, GTG-1002 report, November 2025</span></div>
+      <div class="fact"><span class="n">2028</span><p>Deadline for US power companies to monitor activity inside their control networks.</p><span class="src">FERC Order 907, NERC CIP-015</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">How it works</span>
+      <h2>Find it, set the rules, catch problems, prove it.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="k">Find</span><h3>Know every AI that can reach your equipment</h3><p class="muted">Vendor AI features, engineers’ tools, analytics models, and the ones nobody approved.</p></div>
+      <div class="step"><span class="k">Set rules</span><h3>Decide what each AI may do</h3><p class="muted">Read, needs approval, or never. Written in operators’ terms, not code.</p></div>
+      <div class="step"><span class="k">Catch</span><h3>Stop AI that behaves like an attacker</h3><p class="muted">Machine-speed scanning or actions outside the rules get the AI locked out.</p></div>
+      <div class="step"><span class="k">Prove</span><h3>Show regulators and your board</h3><p class="muted">A tamper-evident record of what AI did, under which rule, and who approved it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="fit-title" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Where it fits</span>
+      <h2 id="fit-title">Your security tools watch the network. Preceptor decides what AI is allowed to do.</h2>
+    </div>
+    <div class="fit">
+      <div>
+        <h3>What you likely already have</h3>
+        <p class="muted">OT security platforms such as Dragos, Claroty and Nozomi.</p>
+        <ul><li>See devices and network traffic</li><li>Detect known threats</li><li>Help analysts investigate</li></ul>
+      </div>
+      <div>
+        <h3>What Preceptor adds</h3>
+        <p class="muted">Built to work with those platforms, using their data.</p>
+        <ul><li>Knows which AI agent made a request, and who owns it</li><li>Applies rules per AI agent</li><li>Holds risky AI actions for a person to approve</li><li>Produces evidence of AI use for auditors</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="demo-title" style="padding-top:0;">
+  <div class="wrap demo">
+    <figure>
+      <img src="dashboard.png" alt="Preceptor dashboard: a simulated substation, an AI request waiting for approval, the AI inventory and security alerts" width="1440" height="945">
+      <figcaption>The working prototype, running against a simulated substation that uses a real industrial protocol (Modbus).</figcaption>
+    </figure>
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <span class="label">Working prototype</span>
+      <h2 id="demo-title">Built and running.</h2>
+      <p class="muted">A vendor’s AI asks to raise the voltage, and nothing changes until an operator clicks Approve. An unregistered AI tool is blocked. A hijacked AI tries to open a breaker, is denied, then gets locked out when it scans the network.</p>
+      <a class="btn ghost" href="#contact" style="align-self:flex-start;">See the live demo</a>
+    </div>
+  </div>
+</section>
+
+<section id="deploy" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Deployment</span>
+      <h2>Starts in watch-only mode. Nothing is blocked until you’re ready.</h2>
+    </div>
+    <div class="deploy">
+      <div><span class="k">Step 1 · Weeks</span><h3>Gate the AI tools you control</h3><p class="muted">Engineers’ AI tools and analytics models connect through Preceptor. Software only.</p></div>
+      <div><span class="k">Step 2 · Months</span><h3>Watch the control network</h3><p class="muted">Uses the sensors you already have. Records and alerts. Blocks nothing.</p></div>
+      <div><span class="k">Step 3 · When you decide</span><h3>Turn on enforcement</h3><p class="muted">Risky AI actions wait for a person. Designed to fail safe, so the grid keeps running.</p></div>
+    </div>
+    <div class="guarantees"><span>Runs on your premises</span><span>No cloud connection needed from the control network</span><span>Works with Dragos, Claroty and Nozomi data</span><span>Never in the path of a control command until you choose</span></div>
+  </div>
+</section>
+
+<section id="assessment" class="band">
+  <div class="wrap assess">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <span class="label">Start here</span>
+      <h2>AI in OT Risk Assessment</h2>
+      <p class="lede">A fixed-price assessment that finds every AI system able to reach your control systems, rates what each could physically do, and gives you a policy and roadmap your board and auditors will accept.</p>
+      <p class="muted">Passive and read-only. All active testing happens in our lab, never on your live systems.</p>
+    </div>
+    <div class="pkgs" style="border-top-color: var(--inv-fg);">
+      <div class="pkg" style="border-bottom-color: var(--inv-line);"><h3>Snapshot</h3><span class="price">From $15K</span><p style="color:var(--inv-muted)">2 weeks. AI inventory, risk register, tailored policy, 90-day roadmap.</p></div>
+      <div class="pkg" style="border-bottom-color: var(--inv-line);"><h3>Full Assessment</h3><span class="price">From $40K</span><p style="color:var(--inv-muted)">4–6 weeks. Adds log review, lab testing of your top risks, a tabletop exercise and compliance mapping.</p></div>
+      <div class="pkg" style="border-bottom-color: var(--inv-line);"><h3>Ongoing Advisory</h3><span class="price">From $5K/mo</span><p style="color:var(--inv-muted)">Keeps your AI inventory and policy current as vendors add AI features.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Questions</span><h2>Straight answers.</h2></div>
+    <div class="faq">
+      <details><summary>Is this an AI kill switch?</summary><p>A kill switch only turns AI off. Preceptor lets AI keep doing useful work: it allows safe actions, holds risky ones for a person, and blocks dangerous ones. You can still cut off any AI agent instantly.</p></details>
+      <details><summary>Does it replace Dragos, Claroty or Nozomi?</summary><p>No. Those platforms watch your network. Preceptor uses their data and adds what they don’t do: knowing which AI acted, applying rules per AI agent, and holding AI actions for human approval.</p></details>
+      <details><summary>What happens if Preceptor fails?</summary><p>In watch-only mode it isn’t in the path of any control command, so nothing changes. When enforcement is turned on, it is designed to fail safe so the grid keeps running.</p></details>
+      <details><summary>Will it slow operators down?</summary><p>Only genuinely risky AI actions ask for approval, and those requests go straight to the person who can decide. Everything else passes through automatically.</p></details>
+      <details><summary>Does our data leave our network?</summary><p>No. Preceptor runs on your premises and needs no cloud connection from the control network.</p></details>
+      <details><summary>Who is it for?</summary><p>Electric utilities first: generation and transmission co-ops, public power and investor-owned utilities. Then water, pipelines, airports and manufacturing, anywhere AI can act on physical equipment.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0;">
+  <div class="wrap contact">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <span class="label">Contact</span>
+      <h2>25 minutes to see whether it fits.</h2>
+      <p class="muted">We’re talking with utility security and compliance leaders about how AI is reaching their control systems. We’re also taking a small number of design partners for the first pilots.</p>
+      <p>Email <span class="email">[email]</span></p>
+    </div>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company-website" id="contact-form">
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label>Leave empty <input name="company-website" id="hp"></label></p>
+      <label for="name">Name<input id="name" name="name" required autocomplete="name"></label>
+      <label for="org">Organization<input id="org" name="organization" required autocomplete="organization"></label>
+      <label for="email">Work email<input id="email" name="email" type="email" required autocomplete="email"></label>
+      <label for="interest">I’m interested in
+        <select id="interest" name="interest">
+          <option>A 25-minute conversation</option>
+          <option>An AI in OT Risk Assessment</option>
+          <option>Becoming a design partner</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label for="msg">Anything we should know?<textarea id="msg" name="message"></textarea></label>
+      <button class="btn" type="submit" style="align-self:flex-start;">Send</button>
+      <p class="form-msg" id="form-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© 2026 Preceptor Defense</span><span>The human sign-off for AI in critical infrastructure.</span></div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  var msg = document.getElementById('form-msg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var body = new URLSearchParams(new FormData(form)).toString();
+    msg.textContent = 'Sending…';
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        msg.textContent = 'Thanks. We’ll reply within two business days.';
+      })
+      .catch(function () {
+        msg.textContent = 'We couldn’t send this from here. Please email us at the address on the left.';
+      });
+  });
+})();
+</script>
+</body>
+</html>
