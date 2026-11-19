@@ -1,15 +1,15 @@
 :root {
-  --dark: #0E0E0F;
-  --dark-2: #1C1C1E;
-  --paper: #F5F5F4;
-  --paper-2: #E7E7E5;
-  --amber: #D4D4D2;
+  --dark: #0F0F0F;
+  --dark-2: #1C1C1C;
+  --paper: #F5F5F5;
+  --paper-2: #E7E7E7;
+  --amber: #D4D4D4;
   --amber-ink: #5A5A5A;
-  --ink: #0E0E0F;
+  --ink: #0F0F0F;
   --ink-soft: #4A4A4A;
   --mist: #B0B0B0;
-  --line-dark: #2E2E30;
-  --line-light: #D0D0CC;
+  --line-dark: #2E2E2E;
+  --line-light: #D0D0D0;
 }
 
 body { font-family: 'Inter', Arial, sans-serif; }
