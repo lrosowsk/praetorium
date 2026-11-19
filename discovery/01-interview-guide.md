@@ -21,6 +21,8 @@
 | H3 | Compliance (NERC CIP, board, insurer) is the trigger to buy | Audit findings, board questions, CIP-015 planning mention AI | AI governance never comes up in compliance work |
 | H4 | There is budget for this, roughly $50–150K a year for a mid-size utility | Comparable tools bought at that price; named budget line | Only free tools or “we’d need a grant” |
 | H5 | Co-ops and municipal utilities move faster than investor-owned ones | Pilot decision in under 6 months | Same or longer cycles as large utilities |
+| H6 | Existing OT security tools (Dragos, Claroty, Nozomi) don’t cover AI governance | “Our Dragos shows traffic, not which AI did what” | Most say their current tool already identifies and controls AI agents |
+| H7 | Watch-only deployment is acceptable to start | “We could put a passive sensor in” or “use our existing Dragos feed” | Even watch-only needs a multi-year approval |
 
 After every 5 interviews, mark each hypothesis **supported / mixed / not supported** in `05-scoring-and-synthesis.md`.
 
@@ -60,14 +62,18 @@ After every 5 interviews, mark each hypothesis **supported / mixed / not support
 15. How are you approaching CIP-015 internal network security monitoring? Which tools are you looking at?
 16. What did you buy most recently for OT security? Roughly what did it cost, and how long did it take from first call to signed contract?
 17. If you had to solve AI visibility in OT this year, where would the money come from?
+18. Which OT security tools do you run today (Dragos, Claroty, Nozomi, other)? Do they tell you what your AI tools are doing, and could they stop one?
+19. If you needed to control what AI can reach in your control environment, which tools you already own would you try first?
+20. Would you trust a control built by the same vendor whose AI it’s controlling, or would you want something independent?
+21. What would it take to approve a watch-only sensor or software gateway in your environment? How long did your last OT tool take?
 
 ### 6. Close (3 min)
 
-18. Is there anything I should have asked but didn’t?
-19. Who else should I talk to, inside your organization or at a peer utility? Would you be willing to introduce me?
-20. Once I have something to show, could I come back for 20 minutes of feedback?
+22. Is there anything I should have asked but didn’t?
+23. Who else should I talk to, inside your organization or at a peer utility? Would you be willing to introduce me?
+24. Once I have something to show, could I come back for 20 minutes of feedback?
 
-*If the pain was strong:* “Some utilities are helping us shape this as design partners: early access and input on the roadmap in exchange for feedback, with a paid pilot later. Would that interest you?”
+*If the pain was strong:* offer the 5-minute demo, then: “Some utilities are helping us shape this as design partners: early access and input on the roadmap in exchange for feedback, with a paid pilot later. Would that interest you?”
 
 ## After the call (within 1 hour)
 

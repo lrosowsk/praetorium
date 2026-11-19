@@ -37,6 +37,7 @@ Agree on these **before** starting, so the results can’t be rationalized after
 | Strong pain, but “not for 2+ years” | Right problem, early timing | Narrow to whatever is urgent now (e.g. AI-driven attack detection or CIP-015 support); apply for SBIR/DOE grants to fund the wait |
 | Pain is about AI-driven **attacks**, not AI **inside** OT | Different wedge | Re-center the product on detecting machine-speed attacks; update the deck |
 | Pain exists but only at large investor-owned utilities | Beachhead is wrong | Rework go-to-market for longer cycles and partner-led sales |
+| Most Dragos/Claroty/Nozomi users say their tool already covers AI | Incumbents own it | Narrow to the approval/hold-point workflow and vendor-AI certification, or pursue partnership/acquisition early |
 | Little pain anywhere | The market isn’t here yet | Stop, or pivot to an adjacent problem that came up repeatedly in interviews |
 
 ## What a pilot letter of intent looks like

@@ -63,6 +63,26 @@ Every number used in the deck, where it came from, and how much to trust it. Res
 | Claroty | ~$3B reported valuation on a $150M raise (2026) | [SC Media](https://www.scworld.com/brief/claroty-secures-150-million-to-protect-industrial-equipment-from-cyber-threats) | Medium. Not confirmed by Claroty |
 | Dragos | $1.7B valuation (2021 Series D); no newer figure found | SecurityWeek | Dated. *Check for newer rounds* |
 
+## Competitive landscape (November 2026)
+
+| Company | 2026 AI product | What it does | Overlap with Preceptor |
+|---|---|---|---|
+| Dragos | [EmberAI](https://www.dragos.com/resources/press-release/dragos-introduces-emberai) (June 2026); MCP server for customer AI tools | AI assistant for OT security analysts; lets customer AI read Dragos data | Monitoring and detection overlap; no AI-agent identity, per-agent policy or human approval |
+| Claroty | [Claire](https://securitybrief.news/story/claroty-launches-claire-ai-agent-for-cyber-physical-systems) (mid-2026) | AI security agent that helps defenders | Same as above |
+| Nozomi Networks | Vantage IQ (Jan 2026) | AI assistant for OT/IoT security teams | Same as above |
+| CrowdStrike | [AI Kill Switch](https://www.csoonline.com/article/4244509/crowdstrike-launches-ai-kill-switch-to-shut-down-rogue-agents.html) (2026) | Shuts down rogue AI agents in enterprise IT | Agent control, but IT only, stop-only, no grid knowledge |
+| Straiker | [Agentic Kill Switch](https://securitybrief.news/story/straiker-launches-kill-switch-for-enterprise-ai-agents) ($64M Series A) | Takes misbehaving enterprise AI agents offline | Same as above |
+| JetStream Security | [AI Kill Switch](https://www.helpnetsecurity.com/2026/07/27/jetstream-ai-kill-switch) | On-demand shutdown of compromised agents | Same as above |
+
+**Positioning:** incumbents use AI to help defenders; nobody governs the AI acting on physical systems. Build on OT sensors, stay neutral across vendors, own the approval workflow.
+
+**Supporting threat research:** a 2026 Booz Allen lab test found an AI agent compromised an OT network and controlled a robotic arm in 16 minutes; Claroty’s Team82 tested an AI coding agent against real industrial controllers ([advisory summary](https://techjacksolutions.com/wp-content/uploads/2026/10/scc-sty-2026-0608-1.pdf)). *Verify against Booz Allen’s original publication before citing externally.*
+
+## Fundraising benchmarks
+
+- Median pre-seed SAFE round ~$1.7–1.9M (Q1–Q2 2026); median cap ~$15M for $1–2.5M rounds ([Carta](https://carta.com/data/safe-valuation-caps-q2-2026/); [Causo](https://hub.causo.ai/guides/h1-2026-pre-seed-funding-report)).
+- Our ask: **$2M post-money SAFE, ~$12–15M cap**, 18 months of runway (budget in `pitch/strategy.md`).
+
 ## Still to research
 
 - Direct CISA link for the Volt Typhoon advisory.

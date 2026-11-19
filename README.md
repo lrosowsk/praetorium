@@ -6,7 +6,7 @@ A preceptor is the one who sets the rules others must follow. The product borrow
 
 ## Where we are
 
-Pre-product, in customer discovery. The plan is to **validate before building**: 30 interviews with utility security and compliance leads, aiming for 3 pilot letters of intent, then a prototype.
+Working prototype built (`demo/`). Now in customer discovery: 30 interviews with utility security and compliance leads, aiming for 3 pilot letters of intent. Raising **$2M pre-seed**. The one-page strategy is in `pitch/strategy.md`.
 
 ## What’s in this repo
 
@@ -24,6 +24,8 @@ Pre-product, in customer discovery. The plan is to **validate before building**:
 | `discovery/prospects.csv` | 61 organizations to contact first, prioritized (guide in `prospects.md`) |
 | `demo/` | Working prototype: AI agents, a simulated substation, the Preceptor gate and dashboard |
 | `deck/project/` | Source files for the pitch deck (one HTML file per slide) |
+| `pitch/strategy.md` | One-page strategy: positioning, raise, milestones, risks |
+| `pitch/script.md` | Slide-by-slide pitch script, 2-minute version, likely questions |
 
 ## The pitch deck
 
