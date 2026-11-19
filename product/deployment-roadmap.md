@@ -9,7 +9,7 @@ Two parts: **(1) how the company gets from today’s prototype to a product util
 | Phase | When | What we build | What customers see | Exit criteria (move on only when true) |
 |---|---|---|---|---|
 | **0. Prototype** | Done | Simulated substation, policy gate, dashboard, audit log, evidence report (`demo/`) | Demos | ✓ Working end-to-end demo |
-| **1. Assessments and design partners** | Months 0–4 | Assessment toolkit (`services/`), AI traffic scanner, prototype hardened for lab use | Paid AI in OT assessments; 2–3 design partners reviewing the product | 3 paid assessments · 2–3 design partners signed · grid-security co-founder hired |
+| **1. Design partners** | Months 0–4 | Prototype hardened for lab use; design-partner program | 2–3 design partners reviewing the product and shaping the watch-only version | 2–3 design partners signed · 3 letters of intent · grid-security co-founder hired |
 | **2. Watch-only product (v0.5)** | Months 3–8 | On-premises install package; AI tool gateway (software, IT side); read-only connectors to Dragos, Claroty and Nozomi data; AI inventory; policy editor in “record only” mode; evidence reports | A pilot that sees and records AI activity but blocks nothing | Installs in under a day · runs 30 days without operator intervention · passes a utility security review · SOC 2 Type I started |
 | **3. Paid watch-only pilots** | Months 6–12 | Pilot support, fixes from real environments, more protocols (DNP3, IEC 61850 in addition to Modbus), role-based access, single sign-on | 2 paid pilots at smaller utilities | Both pilots convert to annual contracts · first case study published |
 | **4. Approval workflow (v1.0)** | Months 12–18 | Human approval for AI tool actions (step 1 customers); approvals routed to operators by phone, console or existing ticketing; high availability; tamper-evident log export for auditors | Customers turn on approval for the AI tools they control | Zero unplanned outages caused by Preceptor · approval adds under 1 minute to normal workflows · SOC 2 Type II |
@@ -37,7 +37,7 @@ Two parts: **(1) how the company gets from today’s prototype to a product util
 Each customer moves through the same three steps from the deck. They can stop at any step and still get value.
 
 ### Before anything is installed (weeks −12 to 0)
-Usually starts with an AI in OT assessment, which produces the AI inventory and policy the product then enforces.
+Starts with an AI inventory and a starter policy, built during onboarding with the customer’s team (or taken from an independent assessment the customer already has).
 - [ ] Contract and pilot scope signed
 - [ ] Customer security review (questionnaire, architecture, SOC 2 report or bridge letter)
 - [ ] Change request approved through the customer’s change management (and CIP process if applicable)
@@ -48,7 +48,7 @@ Usually starts with an AI in OT assessment, which produces the AI inventory and 
 ### Step 1: Gate the AI tools the customer controls (weeks 1–4)
 - Install the Preceptor gateway as software in the customer’s environment.
 - Point engineers’ AI tools and analytics models at the gateway instead of directly at systems.
-- Load the AI inventory and starter policy from the assessment.
+- Load the AI inventory and starter policy from onboarding.
 - Run in **record-only** mode for two weeks, then review what was seen with the customer.
 - **Value delivered:** a live AI inventory and an audit trail for every AI tool action.
 
@@ -65,7 +65,7 @@ Usually starts with an AI in OT assessment, which produces the AI inventory and 
 - **Value delivered:** risky AI actions wait for a person; dangerous ones are blocked.
 
 ### Success measures for every rollout
-- AI systems inventoried versus found in the assessment
+- AI systems inventoried versus found during onboarding
 - Percentage of AI actions covered by a policy
 - Time from AI request to human decision
 - Unplanned operational impact caused by Preceptor (target: zero)
@@ -77,7 +77,7 @@ Usually starts with an AI in OT assessment, which produces the AI inventory and 
 
 | Risk | Mitigation |
 |---|---|
-| Customer approvals take a year | Start with smaller utilities; begin security reviews during the assessment; have SOC 2 and architecture documents ready |
+| Customer approvals take a year | Start with smaller utilities; begin security reviews during the design-partner phase; have SOC 2 and architecture documents ready |
 | Every environment is different | Standard install package; connectors for the three major OT monitoring platforms; budget hands-on support for the first 5–10 rollouts |
 | AI inside vendor grid software is hard to see | Behavioral correlation in step 2; vendor integrations in phase 5; certification program gives vendors a reason to integrate |
 | Preceptor itself is attacked | Security engineering from day one, external penetration tests, no inbound connections from the internet |

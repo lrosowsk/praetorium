@@ -138,7 +138,7 @@ Honestly, it’s early, and that’s the point of our discovery interviews. Adop
 
 **Utility sales cycles are long. How do you survive them?**
 
-We start with co-ops and city-owned utilities, which decide faster, and sell through the agencies and cooperatives that serve dozens of them at once. Government grants and early services revenue extend our runway while larger deals close.
+We start with co-ops and city-owned utilities, which decide faster, and sell through the agencies and cooperatives that serve dozens of them at once. Government grants and paid pilot fees extend our runway while larger deals close.
 
 **What will a customer pay?**
 
